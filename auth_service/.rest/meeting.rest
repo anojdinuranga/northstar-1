@@ -1,0 +1,40 @@
+@hostname = http://localhost:8000
+# @hostname = https://finder.similater.com/car
+@accessToken = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjkzOTMxNjU2LCJleHAiOjE2OTM5MzUyNTYsIm5iZiI6MTY5MzkzMTY1NiwianRpIjoib0JmVm1mYURoSkZZYk5pMSIsInN1YiI6IjIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.GjpSQf3EEXWX9vpCXqL764dWwcFgPLOOrmt0zzZqewo
+@path = /api/meeting
+
+
+### new  meeting
+
+post {{hostname}}{{path}}/new-client-therapy-meeting 
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "therapy_id":3,
+    "reason":"hello",
+    "additional":"",
+    "apt_date":"2002-07-08",
+    "start_time":"00:00:00",
+    "end_time":"03:00:00"
+}
+
+### Reserved times
+
+post {{hostname}}{{path}}/reserved-times 
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "therapy_id":2,
+    "apt_date":"2002-07-03"
+}
+
+### my meetings
+
+get {{hostname}}{{path}}/my-meetings
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+
+

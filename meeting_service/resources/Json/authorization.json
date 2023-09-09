@@ -1,0 +1,11 @@
+{
+    "meeting": {
+        "add": [
+            "client"
+        ],"reserved_time": [
+            "client"
+        ],"my_meetings": [
+            "client"
+        ]
+    }
+}
