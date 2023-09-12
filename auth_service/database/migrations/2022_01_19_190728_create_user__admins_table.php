@@ -18,6 +18,11 @@ class CreateUserAdminsTable extends Migration
             $table->foreignIdFor(User::class,'user_id')->primary()->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
+
+        // Insert default user data here
+        DB::table('user__admins')->insert([
+            'user_id' => '1'
+        ]);
     }
 
     /**

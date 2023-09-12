@@ -58,6 +58,7 @@ $router->group(['middleware' => 'gateway:api'], function () use ($router) {
 
 });
 
+$router->post('/new-client-therapy-hold', [ 'middleware' => 'auth.check:meeting,hold_user', 'uses' => 'Therapy_Meetings_Controller@holdUser']);
 $router->post('/new-client-therapy-meeting', [ 'middleware' => 'auth.check:meeting,add', 'uses' => 'Therapy_Meetings_Controller@add']);
 $router->post('/reserved-times', [ 'middleware' => 'auth.check:meeting,reserved_time', 'uses' => 'Therapy_Meetings_Controller@reserved_time']);
 $router->get('/my-meetings', [ 'middleware' => 'auth.check:meeting,my_meetings', 'uses' => 'Therapy_Meetings_Controller@my_meetings']);

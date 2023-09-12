@@ -41,6 +41,21 @@ class CreateUsersTable extends Migration
 
             $table->timestamps();
         });
+
+        // Insert default user data here
+        DB::table('users')->insert([
+            'id' => '1',
+            'name' => 'admin',
+            'email' => 'admin@similater.com',
+            'phone' => '070000000',
+            'nic' => 'N/A',
+            'gender' => 'male',
+            'birthday' => '1990-01-01',
+            'country_code' => 'N/A',
+            'currency'=> 'N/A',
+            'role' => 'admin',
+            'password' => '$2b$15$ONxxXs9i3wb9seagn1CFUuMOofbsO3nFJfF/FV1r1jK1x9eD0bvyu',
+        ]);
     }
 
     /**

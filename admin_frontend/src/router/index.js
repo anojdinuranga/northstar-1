@@ -25,6 +25,13 @@ import Newsletters from "@/views/Newsletters.vue";
 import AddNewsletterView from "@/components/AddNewsletterView.vue";
 import AdsManager from "@/views/AdsManager.vue";
 import GymFinances from "@/components/GymFinances.vue";
+import HomeSettings from "@/views/HompePageSettings.vue";
+import SuccessStory from "@/views/SuccessStory.vue";
+import SiteAd from "@/views/SiteAd.vue";
+import PreviousProject from "@/views/PreviousProject.vue";
+import ManageTherapy from "@/views/MangeTherapy.vue";
+import TherapyProfile from "@/views/TherapyProfile.vue";
+import TherapyHoldUser from "@/views/TherapyHoldUser.vue";
 
 Vue.use(VueRouter)
 
@@ -54,7 +61,43 @@ const routes = [
   { path: '/subscriptions', name: 'Subscriptions', component: SubscriptionsManager},
   { path: '/ads-gallery', name: 'Ads Gallery', component: AdsManager},
   { path: '/manage-users', name: 'Manage Users', component: ManageUsers},
+  { path: '/home-settings', name: 'Breadcrumb Manage', component: HomeSettings},
+  { path: '/success-story', name: 'Success Story Manage', component: SuccessStory},
+  { path: '/site-ads', name: 'Site Ads Manage', component: SiteAd},
+  { path: '/previous-projects', name: 'Previous Project Manage', component: PreviousProject},
+  { path: '/therapy-manage', name: 'Physio Therapy Manage', component: ManageTherapy},
+  { path: '/therapy-profile', name: 'Therapy Profile', component: TherapyProfile,beforeEnter: (to, from, next) => {
+    // Check if the user is allowed to access this route
+        therapyGuard(next)
+      }
+    },
+    { path: '/user-hold', name: 'User Hold', component: TherapyHoldUser,beforeEnter: (to, from, next) => {
+      // Check if the user is allowed to access this route
+          therapyGuard(next)
+        }
+      },
 ]
+
+function therapyGuard(next){
+  let current_user = window.localStorage.getItem('user')
+        if( current_user !== null){
+          try {
+            if (['therapy'].includes( JSON.parse(current_user).role)) {
+              next(); // Allow access
+            } else {
+              store.commit('deAuth')
+              next('/auth'); // Redirect to the auth page
+            }
+          } catch (error) {
+            store.commit('deAuth')
+            next('/auth');
+          }
+
+        }else{
+          store.commit('deAuth')
+          next('/auth')
+        }
+}
 
 const router = new VueRouter({
   routes,

@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../auth_service"
+		},
+		{
+			"path": "../../../meeting_service"
+		}
+	],
+	"settings": {}
+}

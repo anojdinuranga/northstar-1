@@ -59,6 +59,7 @@
     "0050" : "Invalid Paying Time",
     "0051" : "Invalid Session Duration",
     "0052" : "Doesnt Match with therapy time range",
-    "0053" : "This is a rest day"
+    "0053" : "This is a rest day",
+    "0054" : "Invalid User Email"
     
 }

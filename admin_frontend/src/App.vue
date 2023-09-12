@@ -34,6 +34,21 @@
     </v-navigation-drawer>
 
 
+    <v-navigation-drawer v-if="$route.path !== '/auth' && $store.state.user.role === 'therapy'" width="280" color="#f2f2f2" app permanent class="pr-4">
+      <div class="d-flex justify-center">
+        <v-img height="128" width="260" contain src="@/assets/allblack.png" max-width="200" max-height="200"></v-img>
+      </div>
+
+      <v-list-item active-class="sideMenu-active" v-for="(menu,i) in sideMenuGym" :key="i" color="transparent"
+                   class="sideMenu rounded" :to="menu.to">
+        <v-list-item-icon>
+          <v-icon color="black">{{ menu.icon }}</v-icon>
+        </v-list-item-icon>
+        <v-list-item-title class="black--text">{{ menu.title }}</v-list-item-title>
+      </v-list-item>
+    </v-navigation-drawer>
+
+
     <v-navigation-drawer v-if="$route.path !== '/auth' && $store.state.user.role === 'gym'" width="280" color="#f2f2f2" app permanent class="pr-4">
       <div class="d-flex justify-center">
         <v-img height="128" width="260" contain src="@/assets/allblack.png" max-width="200" max-height="200"></v-img>
@@ -146,6 +161,26 @@ export default {
         title: 'Manage Users',
         icon: 'mdi-account-group',
         to: '/manage-users'
+      },
+      {
+        title: 'Manage Breadcrumbs',
+        icon: 'mdi-account-group',
+        to: '/home-settings'
+      },
+      {
+        title: 'Success Story Manage',
+        icon: 'mdi-account-group',
+        to: '/success-story'
+      },
+      {
+        title: 'Site Ads Manage',
+        icon: 'mdi-account-group',
+        to: '/site-ads'
+      },
+      {
+        title: 'Previous Project Manage',
+        icon: 'mdi-account-group',
+        to: '/previous-projects'
       }
 
     ]

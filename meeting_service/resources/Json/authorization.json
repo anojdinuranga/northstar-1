@@ -6,6 +6,8 @@
             "client"
         ],"my_meetings": [
             "client"
+        ],"hold_user": [
+            "therapy"
         ]
     }
 }

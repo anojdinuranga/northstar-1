@@ -12,7 +12,25 @@ post {{hostname}}{{path}}/login
 Content-Type: application/json
 
 {
-    "email":"client@gmail.com",
+    "email":"admin@similater.com",
     "password": "similater"
+}
+
+### user rgister
+post {{hostname}}{{path}}/register 
+Content-Type: application/json
+
+{
+            "name":"Nuwan Konara",
+            "email" : "admin@similater.com",
+            "password" : "similater",
+            "role" :"admin",
+            "phone" : "075444553",
+            "nic" :"12333",
+            "gender": "male",
+            "birthday":"2002-07-03",
+            "country_code" : "lk",
+            "currency":"rs",
+            "address":"12"
 }
 

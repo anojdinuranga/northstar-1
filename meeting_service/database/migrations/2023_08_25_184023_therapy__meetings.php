@@ -22,6 +22,7 @@ class TherapyMeetings extends Migration
             $table->time('end_time');
             $table->string('reason', 300);
             $table->string('additional', 300);
+            $table->enum('hold', ['0', '1'])->default('0');
             $table->enum('status', ['1', '2']);
             $table->timestamp('created_time')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamps();
